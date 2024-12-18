@@ -1,0 +1,21 @@
+# Think of a Promise as a "placeholder" for a future value. It's like ordering food at a restaurant:
+
+1. Pending: You place your order, and the kitchen starts preparing it.
+2. Fulfilled: Your food arrives successfully.
+3. Rejected: The kitchen informs you that the dish is unavailable.
+
+Why Use Promises?
+Promises handle tasks that take time (like fetching data from a server) without stopping the rest of your program. This keeps your app responsive.
+
+Imagine you're waiting for food (a server response). Instead of staring at the kitchen (blocking your app), you can:
+    - Do other things (like fetching drinks).
+    - React when the food arrives or there's a problem.
+
+In File 1: Named (1_IMP_asyncFunction) we have used resolve and reject which are built-in functions provided by the JavaScript Promise object. These functions are used within the executor function (the function passed to the Promise constructor) to control the outcome of the promise.
+
+    purpose of resolve: When called, it fulfills the promise and passes a value to the .then() method.
+    purpose of reject: When called, it rejects the promise and passes a reason (usually an error message) to the .catch() method.
+
+Behavior of then and catch:
+    .then() is triggered when resolve is called.
+    .catch() is triggered when reject is called.
