@@ -1,0 +1,21 @@
+h1 {
+  color: blueviolet;
+  font-size: 24px;
+}
+
+li {
+  color: tomato;
+}
+
+#fruits-title {
+  color: cadetblue;
+}
+
+.important-classes {
+  color: blue;
+  font-weight: bold;
+}
+
+.yellow-bg {
+  background-color: rgb(216, 216, 28) !important;
+}
