@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS DOM Summary</title>
+  </head>
+  <body>
+    <h1>Final DOM Event Handlers</h1>
+    <h3 id="handler-status">Default Text</h3>
+    <p id="input-text">Input Text:</p>
+    <input type="text" name="" id="input-field" />
+    <button id="btn-update">Update</button>
+
+    <br />
+    <br />
+    <button onclick="handleOnclick()">Add OnClick Function</button>
+    <button id="event-listener">Handle event by AddEventList</button>
+
+    <script>
+      function handleOnclick() {
+        const handlerStatus = document.getElementById("handler-status");
+        handlerStatus.innerText =
+          "Handled Successfully by function added on Add OnClick Button";
+
+        document.body.style.backgroundColor = "red";
+      }
+
+      document
+        .getElementById("event-listener")
+        .addEventListener("click", function () {
+          const handlerStatus = document.getElementById("handler-status");
+          handlerStatus.innerText =
+            "Text updated with the click of AddEventList";
+          const bColor = (document.body.style.backgroundColor = "green");
+          handlerStatus.bColor;
+        });
+
+      //   document
+      //     .getElementById("btn-update")
+      //     .addEventListener("click", function () {
+      //       const inputField = document.getElementById("input-field");
+      //       const inputText = document.getElementById("input-text");
+      //       inputText.innerText = inputField.value;
+      //       inputField.value = "";
+      //     });
+
+      document
+        .getElementById("btn-update")
+        .addEventListener("click", function () {
+          const inputField = document.getElementById("input-field");
+          const inputText = document.getElementById("input-text");
+          inputText.innerText = inputField.value;
+        });
+    </script>
+  </body>
+</html>

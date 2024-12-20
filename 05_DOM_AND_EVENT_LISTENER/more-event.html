@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More Events</title>
+  </head>
+  <body>
+    <h1>Explore More Events from JS</h1>
+
+    <button id="btn-more">Events</button>
+    <input id="text-field" type="text" />
+
+    <script>
+      //   document
+      //     .getElementById("text-field")
+      //     .addEventListener("focus", function () {
+      //       console.log("Event created inside the area");
+      //     });
+      //   document
+      //     .getElementById("text-field")
+      //     .addEventListener("blur", function () {
+      //       console.log("Event created outside the area");
+      //     });
+      //   document
+      //     .getElementById("text-field")
+      //     .addEventListener("keydown", function () {
+      //       console.log(event.target.value);
+      //     });
+      //   document
+      //     .getElementById("text-field")
+      //     .addEventListener("keypress", function () {
+      //       console.log(event.target.value);
+      //     });
+      document
+        .getElementById("text-field")
+        .addEventListener("keyup", function () {
+          console.log(event.target.value);
+        });
+      document
+        .getElementById("btn-more")
+        .addEventListener("mousemove", function () {
+          console.log("Event Working");
+        });
+    </script>
+  </body>
+</html>
