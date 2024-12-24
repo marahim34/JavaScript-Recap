@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoGenie</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="m-8">
+    <header class="bg-gray-800 text-white p-4">
+      <h1 class="text-3xl text-center">GeoGenie: Geometry Area Calculator</h1>
+      <button id="theme-toggle">Switch Theme</button>
+    </header>
+
+    <section class="bg-gray-800 text-white p-4">
+      <nav class="flex justify-between items-center">
+        <!-- Hamburger Menu for Mobile -->
+        <button id="menu-toggle" class="md:hidden">
+          <span class="block w-6 h-1 bg-white mb-1"></span>
+          <span class="block w-6 h-1 bg-white mb-1"></span>
+          <span class="block w-6 h-1 bg-white"></span>
+        </button>
+
+        <!-- Full Navigation Menu -->
+        <ul
+          id="menu"
+          class="hidden flex-col space-y-4 md:flex md:flex-row md:space-y-0 md:space-x-6"
+        >
+          <li>
+            <a href="#about" class="hover:underline">About GeoGenie</a>
+          </li>
+          <li>
+            <a href="#calculation-area" class="hover:underline">Calculation</a>
+          </li>
+          <li>
+            <a href="#development" class="hover:underline"
+              >Development Track & Features</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <section id="about" class="bg-gray-100 text-gray-800 p-8">
+      <h2 class="text-4xl font-extrabold mb-6">About GeoGenie</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        GeoGenie is a simple yet powerful tool designed to calculate the area of
+        various geometric shapes. Enter the required dimensions, and let
+        GeoGenie do the math for you!
+      </p>
+    </section>
+
+    <main>
+      <section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Shape container -->
+        <div
+          class="col-span-1 md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <!-- Triangle Card-->
+          <div
+            class="card card:hover card-compact bg-base-100 w-full max-w-sm shadow-xl p-4"
+          >
+            <figure>
+              <img src="images/triangle.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Triangle</h2>
+              <p class="text-center text-3xl">Area = 0.5 x base x height</p>
+
+              <div class="">
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="triangle-base"
+                  placeholder="base"
+                />
+                <span class="mr-4 ml2">cm</span>
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="triangle-height"
+                  placeholder="height"
+                />
+                <span>cm</span>
+              </div>
+              <div>
+                <p class="text-2xl">
+                  Area: <span id="triangle-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions">
+                <button
+                  onclick="calculateTriangleArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Rectangle Card -->
+          <div
+            class="card card:hover card-compact bg-base-100 w-full max-w-sm shadow-xl p-4"
+          >
+            <figure>
+              <img src="images/rectangle.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Rectangle</h2>
+              <p class="text-center text-3xl">Area (A) = w x l</p>
+
+              <div class="">
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="rectangle-width"
+                  placeholder="width"
+                />
+                <span class="mr-4 ml2">cm</span>
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="rectangle-length"
+                  placeholder="length"
+                />
+                <span>cm</span>
+              </div>
+              <div>
+                <p class="text-2xl">
+                  Area: <span id="rectangle-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions">
+                <button
+                  onclick="calculateRectangleArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Parallelogram Card -->
+          <div
+            class="card card:hover card-compact bg-base-100 w-full max-w-sm shadow-xl p-4"
+          >
+            <figure>
+              <img src="images/parallelogram.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Parallelogram</h2>
+              <p class="text-center text-3xl">Area (A) = base x height</p>
+
+              <div class="">
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="para-base"
+                  placeholder="base"
+                />
+                <span class="mr-4 ml2">cm</span>
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="para-height"
+                  placeholder="height"
+                />
+                <span>cm</span>
+              </div>
+              <div>
+                <p class="text-2xl">
+                  Area: <span id="parallelogram-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions">
+                <button
+                  onclick="calculateParallelogramArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Rhombus Card -->
+          <div
+            class="card card:hover card-compact bg-base-100 w-full max-w-sm shadow-xl p-4"
+          >
+            <figure>
+              <img src="images/rhombus.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Rhombus</h2>
+              <p class="text-center text-3xl">
+                Area (A) = 0.5 x d<sub>1</sub> x d<sub>2</sub>
+              </p>
+
+              <div class="">
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="rhombus-d1"
+                  placeholder="d₁"
+                />
+
+                <span class="mr-4 ml2">cm</span>
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="rhombus-d2"
+                  placeholder="d₂"
+                />
+
+                <span>cm</span>
+              </div>
+              <div>
+                <p class="text-2xl">
+                  Area: <span id="rhombus-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions">
+                <button
+                  onclick="calculateRhombusArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Pentagon Card -->
+          <div
+            class="card card:hover card-compact bg-base-100 w-full max-w-sm shadow-xl p-4"
+          >
+            <figure>
+              <img src="images/pentagon.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Pentagon</h2>
+              <p class="text-center text-3xl">Area (A) = 0.5 x p x b</p>
+
+              <div class="">
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="pentagon-p"
+                  placeholder="p"
+                />
+
+                <span class="mr-4 ml2">cm</span>
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="pentagon-b"
+                  placeholder="b"
+                />
+
+                <span>cm</span>
+              </div>
+              <div>
+                <p class="text-2xl">
+                  Area: <span id="pentagon-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions">
+                <button
+                  onclick="calculatePentagonArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Ellipse Card -->
+          <div
+            class="card card:hover card-compact bg-base-100 w-full max-w-sm shadow-xl p-4"
+          >
+            <figure>
+              <img src="images/ellipse.png" alt="Shoes" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Ellipse</h2>
+              <p class="text-center text-3xl">Area (A) = π x a x b</p>
+
+              <div class="">
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="ellipse-a"
+                  placeholder="a"
+                />
+
+                <span class="mr-4 ml2">cm</span>
+                <input
+                  class="w-24 text-2xl p-2 rounded-sm"
+                  type="text"
+                  name=""
+                  id="ellipse-b"
+                  placeholder="b"
+                />
+
+                <span>cm</span>
+              </div>
+              <div>
+                <p class="text-2xl">
+                  Area: <span id="ellipse-area"></span>
+                  <span>cm<sup>2</sup></span>
+                </p>
+              </div>
+              <div class="card-actions">
+                <button
+                  onclick="calculateEllipseArea()"
+                  class="btn btn-primary w-full"
+                >
+                  Calculate
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Area calculation container -->
+        <div
+          id="calculation-area"
+          class="w-full max-w-sm border-2 border-gray-500 rounded-md p-4"
+        >
+          <h3 class="text-2xl md:text-3xl text-center mb-4">
+            Area Calculation
+          </h3>
+        </div>
+      </section>
+      <section id="development" class="bg-gray-100 text-gray-800 p-8">
+        <h2 class="text-3xl font-bold mb-4">
+          Development Track & Key Features
+        </h2>
+        <p class="text-lg leading-relaxed mb-6">
+          This website is built using JavaScript, DaisyUI, and plain CSS. Below
+          are the key features that make GeoGenie a powerful and easy-to-use
+          tool:
+        </p>
+        <ul class="list-disc pl-6">
+          <li>Simple and user-friendly interface.</li>
+          <li>Support for multiple geometric shapes.</li>
+          <li>Responsive design for all devices.</li>
+        </ul>
+      </section>
+      <footer class="bg-gray-800 text-white p-4 w-full text-center">
+        <p>&copy; 2024 GeoGenie. All Rights Reserved.</p>
+        <p>
+          Contact us at
+          <a href="mailto:marahim34@gmail.com" class="underline"
+            >marahim34@gmail.com</a
+          >
+        </p>
+      </footer>
+      <script src="scripts/reusableFunc.js"></script>
+      <script src="scripts/triangle.js"></script>
+      <script src="scripts/rectangle.js"></script>
+      <script src="scripts/parallelogram.js"></script>
+      <script src="scripts/rhombus.js"></script>
+      <script src="scripts/pentagon.js"></script>
+      <script src="scripts/ellipse.js"></script>
+      <script src="scripts/toggleButton.js"></script>
+    </main>
+  </body>
+</html>
