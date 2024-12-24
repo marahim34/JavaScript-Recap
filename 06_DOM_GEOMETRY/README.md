@@ -37,5 +37,4 @@ If deployed, you can include a live link here: [GeoGenie Live](https://geogenie.
 1. Select a shape to calculate its area.
 2. Enter the required dimensions in the input fields.
 3. Click the "Calculate" button to view the result.
-4. Convert results to m² or in² as needed using the provided buttons.
-5. Save or reset calculations as required.
+4. Convert results to m² as needed using the provided buttons.
