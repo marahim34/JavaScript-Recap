@@ -1,49 +1,140 @@
-.card:hover {
-  background-color: #75b3f1;
-  transform: scale(1.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
 body {
   background-color: #f9f9f9;
   color: #333;
-  font-family: Arial, sans-serif;
-  transition: all 0.3s ease; /* Smooth transition for theme change */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Alternate Theme (Pastel) */
 body.pastel-mode {
-  background-color: #ffe4e1; /* Light Coral */
-  color: #4b0082; /* Indigo */
+  background-color: #ffe4e1;
+  color: #4b0082;
 }
 
-/* Button Styling */
-#theme-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: #4b0082; /* Indigo */
-  color: #ffffff;
+header,
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.container {
+  padding: 16px;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.main-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: dense;
+  }
+
+  #calculation-area {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-grid {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+  background-color: #75b3f1;
+  transform: scale(1.1);
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+figure img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.card-body {
+  margin-top: 1rem;
+}
+
+.card-body input {
+  padding: 8px;
+  margin: 4px;
+  width: 60px;
+}
+
+.btn {
+  background-color: #4b0082;
+  color: white;
+  padding: 10px 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#theme-toggle:hover {
-  background-color: #ff69b4; /* Hot Pink */
+.btn:hover {
+  background-color: #ff69b4;
+  transform: scale(1.05);
+}
+
+#calculation-area {
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
 
 .nav-menu {
   display: none;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .nav-menu.active {
-  display: block;
+  display: flex;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .nav-menu {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
   }
 }

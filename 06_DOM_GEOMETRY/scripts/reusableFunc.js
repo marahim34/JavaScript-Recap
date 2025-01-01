@@ -4,13 +4,23 @@ function getInputValueById(inputFieldId) {
   const inputFieldValue = parseFloat(
     document.getElementById(inputFieldId).value
   );
-
   return inputFieldValue;
 }
 
 function setInnerTextById(elementId, area) {
   const element = document.getElementById(elementId);
   element.innerText = area;
+}
+
+function refreshSerialNumbers() {
+  const calculationArea = document.getElementById("calculation-area");
+  const items = calculationArea.querySelectorAll(".flex");
+
+  items.forEach((item, index) => {
+    const calculationText = item.querySelector("span");
+    const currentText = calculationText.innerHTML;
+    calculationText.innerHTML = currentText.replace(/^\d+\./, `${index + 1}.`);
+  });
 }
 
 function setAreaCalculation(element, result) {
@@ -34,6 +44,7 @@ function setAreaCalculation(element, result) {
       4
     )} m²</strong>`;
     convertButton.remove();
+    refreshSerialNumbers(); // Refresh serial numbers after conversion
   });
 
   listItem.appendChild(convertButton);
@@ -41,6 +52,7 @@ function setAreaCalculation(element, result) {
   setArea.appendChild(listItem);
 
   counter++;
+  refreshSerialNumbers(); // Refresh serial numbers after adding a new entry
 }
 
 function displayResult(result) {
