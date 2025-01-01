@@ -38,3 +38,18 @@ If deployed, you can include a live link here: [GeoGenie Live](https://geogenie.
 2. Enter the required dimensions in the input fields.
 3. Click the "Calculate" button to view the result.
 4. Convert results to m² as needed using the provided buttons.
+
+## Screenshots
+
+**1. Screenshot on Nest Hub Max**  
+This shows how GeoGenie looks on a large screen like the Nest Hub Max.  
+<img src="https://github.com/marahim34/JavaScript-Recap/blob/main/06_DOM_GEOMETRY/screenshots/geogenie.netlify.app_(Nest%20Hub%20Max).png" alt="Screenshot on Nest Hub Max" width="800px">
+
+**2. Screenshot on iPad Mini**  
+This displays GeoGenie on a medium-sized screen like the iPad Mini.  
+<img src="https://github.com/marahim34/JavaScript-Recap/blob/main/06_DOM_GEOMETRY/screenshots/geogenie.netlify.app_(iPad%20Mini).png" alt="Screenshot on iPad Mini" width="500px">
+
+**3. Screenshot on iPhone 14 Pro Max**  
+This showcases GeoGenie on a small screen like the iPhone 14 Pro Max.  
+<img src="https://github.com/marahim34/JavaScript-Recap/blob/main/06_DOM_GEOMETRY/screenshots/geogenie.netlify.app_(iPhone%2014%20Pro%20Max).png" alt="Screenshot on iPhone 14 Pro Max" width="300px">
+
